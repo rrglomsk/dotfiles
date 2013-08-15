@@ -4,4 +4,12 @@ set ai                                " auto-indenting
 set hlsearch                          " highlight the last searched term
 colorscheme evening 
 
-set softtabstop=4
+"set softtabstop=4
+
+:set hidden
+:set title
+let &titleold="Terminal"
+
+if has("autocmd")
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+endif
