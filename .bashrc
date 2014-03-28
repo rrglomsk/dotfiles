@@ -4,10 +4,12 @@ export M2=$M2_HOME/bin
 export PATH=$M2:$PATH
 export JAVA_HOME=/opt/jdk1.6.0_45
 export PATH=$JAVA_HOME/bin:$PATH
+export PATH=$PATH:/home/rrglomsk/homework/play-2.2.2
+
 
 EDITOR=vim; export EDITOR
 
-alias javadoc7='/opt/jdk1.7.0_21/bin/javadoc'
+alias java7='/opt/jdk1.7.0_21/bin/'
 
 alias grades='cd ~/portlet_mygrades/src/main/java/edu/oakland/mygrades/mvc/portlet'
 
@@ -98,4 +100,17 @@ function build {
     builtin cd $cwd
 }
 
+function initportal {
+    cwd=$(pwd)
+    builtin cd ~/uportal/uPortal
+    groovy -Denv=local -Dmaven.test.skip=true -Dbuild.ant.target="clean initportal" build.groovy 
+    builtin cd $cwd
 
+}
+
+alias ll='ls -l'
+
+alias ie8="WINEPREFIX=~/.wine32ie8 WINEARCH=win32 wine 'C:\Program Files\Internet Explorer\iexplore'"
+alias ie7="WINEPREFIX=~/.wine32ie7 WINEARCH=win32 wine 'C:\Program Files\Internet Explorer\iexplore'"
+
+alias psiman="/home/rrglomsk/uportal/uPortal/bin/webapp_cntl.sh"
